@@ -160,7 +160,7 @@ namespace FiftyOne.Foundation.Mobile.Redirection
                             {
                                 if (homePage.Enabled)
                                 {
-                                    Location current = new Location(homePage.Name, homePage.Url, homePage.MatchExpression);
+                                    Location current = new Location(homePage.Name, homePage.Url, homePage.MatchExpression, homePage.PortalId);
                                     foreach (FilterElement filter in homePage)
                                     {
                                         if (filter.Enabled)
@@ -323,10 +323,17 @@ namespace FiftyOne.Foundation.Mobile.Redirection
         {
             foreach (Location location in _locations)
             {
-                if (location.GetIsMatch(context))
+                if (LocationPortalMatchesCurrentPortal(location._portalId) && location.GetIsMatch(context))
                     return location;
             }
             return null;
+        }
+
+        private static bool LocationPortalMatchesCurrentPortal(int locationPortalId)
+        {
+            var portalSettings = DotNetNuke.Entities.Portals.PortalController.GetCurrentPortalSettings();
+            int currentPortalId = portalSettings != null ? portalSettings.PortalId : -1;
+            return currentPortalId == locationPortalId;
         }
 
         /// <summary>

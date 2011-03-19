@@ -82,6 +82,15 @@ namespace FiftyOne.Foundation.Mobile.Configuration
         {
             get { return (bool)this["enabled"]; }
         }
+
+        /// <summary>
+        /// Gets or sets the value for the DotNetNuke portal id with which this location is associated.
+        /// </summary>
+        [ConfigurationProperty("portalid", IsRequired = false)]
+        public int PortalId
+        {
+            get { return (int)this["portalid"]; }
+        }
         
         #endregion
 

@@ -36,15 +36,17 @@ namespace FiftyOne.Foundation.Mobile.Redirection
         internal readonly string _url;
         internal readonly List<Filter> _filters = new List<Filter>();
         internal readonly Regex _matchRegex;
+        internal readonly int _portalId;
 
         #endregion
 
         #region Constructors
 
-        internal Location(string name, string url, string expression)
+        internal Location(string name, string url, string expression, int portalId)
         {
             _name = name;
             _url = url;
+            _portalId = portalId;
             if (String.IsNullOrEmpty(expression) == false)
                 _matchRegex = new Regex(expression, RegexOptions.Compiled | RegexOptions.IgnoreCase);
         }
