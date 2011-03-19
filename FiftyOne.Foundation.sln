@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiftyOne.Foundation", "FiftyOne.Foundation.csproj", "{2C9B0E11-2654-49AF-855A-BFA629F302E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{8311C4EC-7380-4F92-A0E1-0E106BDB3B49}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\DotNetNuke.dll = Dependencies\DotNetNuke.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
